@@ -29,8 +29,10 @@ body {
   text-align: center;
 }
 .main img {
+  flex: 1;
+  background: url("image.png") no-repeat center center;
   background-size: cover;
-  margin: 0 auto 15px; /* centers image and adds bottom space */
+
   width: 450px;
   height: 80px;
   border-radius: 10px;
