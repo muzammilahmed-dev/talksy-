@@ -41,7 +41,7 @@ body {
   margin-bottom: 30px;
 }
 .btn {
-  background: #5772f8;
+  background: #5671f8;
   color: #fff;
   padding: 12px 25px;
   text-decoration: none;
@@ -51,5 +51,5 @@ body {
 }
 
 .btn:hover {
-  background: #2644d7;
+  background: #3e5cf3;
 }
