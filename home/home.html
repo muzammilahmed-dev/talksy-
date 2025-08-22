@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talksy grouo chat</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="leftSide">
+        <div class="header">
+          <div class="userimg">
+            <img src="cap.png" class="cover" />
+          </div>
+          <ul class="nav-icons">
+            <li><ion-icon name="scan-circle-outline"></ion-icon></li>
+            <li><ion-icon name="chatbox"></ion-icon></li>
+            <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+          </ul>
+        </div>
+        <div class="search-chat">
+          <div>
+            <input type="text" placeholder="search or start new chat" />
+            <ion-icon name="search-outline"></ion-icon>
+          </div>
+        </div>
+        <div id="chatList" class="chatlist"></div>
+      </div>
+
+      <div class="rightSide">
+        <div class="header">
+          <div class="imgText">
+            <div class="userimg">
+              <img src="image1.jpg" class="cover" />
+            </div>
+            <h4>Muzammil Ahmed <br /><span>online</span></h4>
+          </div>
+          <ul class="nav-icons">
+            <li><ion-icon name="search-outline"></ion-icon></li>
+            <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+          </ul>
+        </div>
+
+        <!-- chat box -->
+        <div class="chatB0x">
+          <div class="message my_message">
+            <p>hi<br /><span>12:11</span></p>
+          </div>
+          <div class="message frnd_message">
+            <p>Hello<br /><span>12:11</span></p>
+          </div>
+        </div>
+        <!-- chat input box -->
+        <div class="chatbox_input">
+          <ion-icon name="happy-outline"></ion-icon>
+          <ion-icon name="attach-outline"></ion-icon>
+          <input type="text" placeholder="Type a message" />
+          <ion-icon name="mic-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

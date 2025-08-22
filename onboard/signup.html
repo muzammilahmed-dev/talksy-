@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
     <link rel="stylesheet" href="signup.css" />
+    <script src="./script.js" type="module"></script>
   </head>
   <body>
     <div class="signup-box">
       <h2>Create Account</h2>
       <form>
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
-        <input type="text" placeholder="Phone Number" required />
+        <input type="text" id="name-verify" placeholder="Full Name" required />
+        <input type="email" id="email-verify" placeholder="Email" required />
+        <input
+          type="text"
+          id="password-verify"
+          placeholder="Password"
+          required
+        />
 
-        <button type="submit">Sign Up</button>
+        <button onclick="signUp(event)">Sign Up</button>
       </form>
       <p>Already have an account? <a href="login.html">Login here</a></p>
     </div>

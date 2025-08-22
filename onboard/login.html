@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="login.css" />
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <div class="main">
+      <img src="image.png" alt="" />
+      <h1>Sign in to Talksy</h1>
+      <h2>Enter your Phone Number to continue</h2>
+      <form>
+        <input
+          type="email"
+          id="email-verify"
+          name="email"
+          placeholder="Email"
+          required
+          autofocus=""
+        />
+        <input
+          type="password"
+          id="password-verify"
+          name="password"
+          placeholder="User password"
+          required
+          autofocus=""
+        />
+
+        <div id="login-container"></div>
+        <button onclick="signIn(event)">Continue</button>
+      </form>
+      <p>Don't Have An Account? <a href="signup.html">Create Account</a></p>
+    </div>
+    <!-- <script src="https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";" ></script> -->
+  </body>
+</html>
