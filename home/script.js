@@ -39,6 +39,7 @@ const urlParams = new URLSearchParams(window.location.search);
 // Get a single query parameter
 const userId = urlParams.get("userId"); // "Muzammil"
 let selectedGroupId = "";
+let currentMessageListener = null;
 
 async function fetchGroupsOneUser(userId) {
   const ref = collection(db, "groups");
@@ -167,21 +168,34 @@ async function addMessageToTheGroup(groupId, message) {
 // send message
 const btnSendMessage = document.getElementById("btnSendMessage");
 btnSendMessage.addEventListener("click", async () => {
-  let message = document.getElementById("inputSendMessage").value;
-  addMessageToTheGroup(selectedGroupId, message);
+  const inputElement = document.getElementById("inputSendMessage");
+  const message = inputElement.value;
+
+  if (message.trim()) {
+    await addMessageToTheGroup(selectedGroupId, message);
+    inputElement.value = "";
+  }
 });
-console.log("Hello");
 
 // open group chat history
 async function openGroupHistory(groupId) {
   console.log(`selectedGroupId: ${groupId}`);
   selectedGroupId = groupId;
 
+  // Clear previous messages from the UI
+  document.getElementById("chatContainer").innerHTML = "";
+
+  // Remove previous message listener if exists
+  if (currentMessageListener) {
+    currentMessageListener();
+  }
+
   const groupRef = ref(rtdb, `groups/${groupId}`);
 
   // Listen for new messages
-  onChildAdded(groupRef, (snapshot) => {
+  currentMessageListener = onChildAdded(groupRef, (snapshot) => {
     const messageData = snapshot.val();
+
     const { message } = messageData;
     const messageHTML = `<div class="message ${
       messageData.userId === userId ? "my_message" : "frnd_message"
@@ -190,13 +204,9 @@ async function openGroupHistory(groupId) {
           </div>`;
     //clear previous messages
 
-    document
-      .getElementById("chatContainer")
-      .insertAdjacentHTML("beforeend", messageHTML);
-
-    console.log("Message: " + JSON.stringify(messageData));
-
-    // displayMessage(messageData);
+    const chatContainer = document.getElementById("chatContainer");
+    chatContainer.insertAdjacentHTML("beforeend", messageHTML);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
   });
 }
 
