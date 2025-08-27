@@ -88,6 +88,121 @@ body {
   margin-left: 22px;
 }
 
+.nav-icons button {
+  display: flex;
+  list-style: none;
+  cursor: pointer;
+  color: #51585c;
+  font-size: 1.5rem;
+  margin-left: 22px;
+}
+
+.model_container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.model_container.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.model {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+}
+.model h1 {
+  margin: 0;
+}
+.model p {
+  opacity: 0.7;
+  font-size: 14px;
+}
+.model_container input {
+  height: 30px;
+  width: 500px;
+  color: #111;
+}
+.closeCreateGroup {
+  height: 35px;
+  width: 100%;
+  background: #5671f8;
+  color: white;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.closeCreateGroup:hover {
+  background: #3e5cf3;
+}
+
+.model_Group {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.model_Group.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+.Group {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.Group h1 {
+  margin: 0;
+}
+.Group p {
+  opacity: 0.7;
+  font-size: 14px;
+}
+.model_Group input {
+  height: 30px;
+  width: 500px;
+  color: #111;
+}
+.createGroup {
+  height: 35px;
+  width: 100%;
+  background: #5671f8;
+  color: white;
+  margin-top: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.createGroup:hover {
+  background: #3e5cf3;
+  cursor: pointer;
+}
+
 .search-chat {
   position: relative;
   width: 100%;

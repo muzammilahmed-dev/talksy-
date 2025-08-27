@@ -14,9 +14,13 @@
             <img src="cap.png" class="cover" />
           </div>
           <ul class="nav-icons">
-            <li><ion-icon name="scan-circle-outline"></ion-icon></li>
-            <li><ion-icon name="chatbox"></ion-icon></li>
-            <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+            <button id="openJoinGroup">
+              <li><ion-icon name="scan-circle-outline"></ion-icon></li>
+            </button>
+
+            <button id="open">
+              <li><ion-icon name="add-circle-outline"></ion-icon></li>
+            </button>
           </ul>
         </div>
         <div class="search-chat">
@@ -43,21 +47,48 @@
         </div>
 
         <!-- chat box -->
-        <div class="chatB0x">
-          <div class="message my_message">
+        <div class="chatB0x" id="chatContainer">
+          <!-- <div class="message my_message">
             <p>hi<br /><span>12:11</span></p>
-          </div>
-          <div class="message frnd_message">
+          </div> -->
+          <!-- <div class="message frnd_message">
             <p>Hello<br /><span>12:11</span></p>
-          </div>
+          </div> -->
         </div>
+
         <!-- chat input box -->
         <div class="chatbox_input">
           <ion-icon name="happy-outline"></ion-icon>
           <ion-icon name="attach-outline"></ion-icon>
-          <input type="text" placeholder="Type a message" />
-          <ion-icon name="mic-outline"></ion-icon>
+          <input
+            id="inputSendMessage"
+            type="text"
+            placeholder="Type a message"
+          />
+          <ion-icon id="btnSendMessage" name="send-outline"></ion-icon>
         </div>
+      </div>
+    </div>
+
+    <div class="model_container" id="modelCreateGroup">
+      <div class="model">
+        <h1>Create Group</h1>
+        <p>Enter Your Group Name</p>
+        <input
+          id="createGroup"
+          type="text"
+          placeholder="search or start new chat"
+        />
+        <button class="closeCreateGroup" id="close">Create Group</button>
+      </div>
+    </div>
+
+    <div class="model_Group" id="modelJoinGroup">
+      <div class="Group">
+        <h1>Join Group</h1>
+        <p>Enter Your Group Code</p>
+        <input id="joinGroupCode" type="text" placeholder="Enter Group Code" />
+        <button class="createGroup" id="joinGroupViaCode">Join Group</button>
       </div>
     </div>
 
