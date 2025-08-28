@@ -16,7 +16,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .signup-box {
@@ -24,21 +25,24 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  width: 320px;
+  width: 100%;
+  width: 400px;
   text-align: center;
 }
 
 .signup-box h2 {
   margin-bottom: 20px;
   color: #333;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .signup-box input {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 12px;
+  margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: clamp(14px, 2vw, 16px);
 }
 
 .signup-box button {
@@ -47,10 +51,11 @@ body {
   background: #5671f8;
   border: none;
   color: white;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  transition: background 0.3s ease;
 }
 
 .signup-box button:hover {
@@ -59,7 +64,7 @@ body {
 
 .signup-box p {
   margin-top: 15px;
-  font-size: 14px;
+  font-size: clamp(14px, 2vw, 16px);
 }
 
 .signup-box a {
@@ -69,4 +74,40 @@ body {
 
 .signup-box a:hover {
   text-decoration: underline;
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  .signup-box {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .signup-box input {
+    padding: 10px;
+    margin: 8px 0;
+  }
+
+  .signup-box button {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .signup-box {
+    padding: 15px;
+    width: 95%;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .signup-box {
+    padding: 15px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 }
