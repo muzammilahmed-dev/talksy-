@@ -23,12 +23,7 @@
             </button>
           </ul>
         </div>
-        <div class="search-chat">
-          <div>
-            <input type="text" placeholder="search or start new chat" />
-            <ion-icon name="search-outline"></ion-icon>
-          </div>
-        </div>
+
         <div id="chatList" class="chatlist"></div>
       </div>
 
@@ -38,12 +33,8 @@
             <div class="userimg">
               <img src="image1.jpg" class="cover" />
             </div>
-            <h4>Muzammil Ahmed <br /><span>online</span></h4>
+            <h4 id="selectedGroupName"></h4>
           </div>
-          <ul class="nav-icons">
-            <li><ion-icon name="search-outline"></ion-icon></li>
-            <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
-          </ul>
         </div>
 
         <!-- chat box -->
@@ -58,8 +49,6 @@
 
         <!-- chat input box -->
         <div class="chatbox_input">
-          <ion-icon name="happy-outline"></ion-icon>
-          <ion-icon name="attach-outline"></ion-icon>
           <input
             id="inputSendMessage"
             type="text"

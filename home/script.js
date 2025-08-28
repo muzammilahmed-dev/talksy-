@@ -36,20 +36,22 @@ const db = getFirestore(app);
 const rtdb = getDatabase(app);
 const urlParams = new URLSearchParams(window.location.search);
 
-// Get a single query parameter
+// Global variables
 const userId = urlParams.get("userId"); // "Muzammil"
 let selectedGroupId = "";
 let currentMessageListener = null;
+let groupIdMap = new Map();
 
 async function fetchGroupsOneUser(userId) {
   const ref = collection(db, "groups");
   const q = query(ref, where("users", "array-contains", userId));
   const querySnapshot = await getDocs(q);
-
   let groups = ``;
   querySnapshot.forEach((doc) => {
     const groupId = doc.id;
-    const { groupName, lastMessage } = doc.data();
+    const { groupName, lastMessage, code } = doc.data();
+    groupIdMap.set(groupId, { groupName, code });
+
     const groupHtml = `<div class="block" onclick="openGroupHistory('${groupId}')">
             <div class="imgbx">
               <img src="image1.jpg" class="cover" />
@@ -70,6 +72,8 @@ async function fetchGroupsOneUser(userId) {
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, " => ", doc.data());
   });
+
+  console.log(groupIdMap);
 
   const chatListDiv = document.getElementById("chatList");
   chatListDiv.innerHTML = groups;
@@ -179,9 +183,13 @@ btnSendMessage.addEventListener("click", async () => {
 
 // open group chat history
 async function openGroupHistory(groupId) {
-  console.log(`selectedGroupId: ${groupId}`);
   selectedGroupId = groupId;
+  const group = groupIdMap.get(groupId);
+  console.log(`selectedGroupId: ${groupId}`, group);
 
+  document.getElementById(
+    "selectedGroupName"
+  ).innerHTML = `${group.groupName} <br /><span>${group.code}</span>`;
   // Clear previous messages from the UI
   document.getElementById("chatContainer").innerHTML = "";
 
@@ -196,11 +204,18 @@ async function openGroupHistory(groupId) {
   currentMessageListener = onChildAdded(groupRef, (snapshot) => {
     const messageData = snapshot.val();
 
-    const { message } = messageData;
+    const { message, createdAt } = messageData;
+
+    // Format the timestamp
+    const messageTime = new Date(createdAt).toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
     const messageHTML = `<div class="message ${
       messageData.userId === userId ? "my_message" : "frnd_message"
     }">
-            <p>${message}<br /><span>12:11</span></p>
+            <p>${message}<br /><span>${messageTime}</span></p>
           </div>`;
     //clear previous messages
 
