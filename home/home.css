@@ -67,6 +67,12 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
+
+.backArrow {
+  height: 25px;
+  width: 25px;
+  padding-top: 10px;
+}
 .cover {
   position: absolute;
   top: 0;
@@ -475,14 +481,15 @@ body {
   border-radius: 30px;
   font-size: 1em;
 }
-@media screen and (max-width: 1200px) {
+
+/* @media screen and (max-width: 1200px) {
   .container {
     width: 95%;
     height: 95vh;
   }
-}
+} */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .container {
     width: 100%;
     height: 100vh;
@@ -507,9 +514,9 @@ body {
   .model_Group input {
     width: 100%;
   }
-}
+} */
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
   .container {
     display: block;
   }
@@ -560,4 +567,4 @@ body {
   .header {
     padding: 0 10px;
   }
-}
+} */

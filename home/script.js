@@ -41,6 +41,60 @@ const userId = urlParams.get("userId"); // "Muzammil"
 let selectedGroupId = "";
 let currentMessageListener = null;
 let groupIdMap = new Map();
+const mediaQueries = {
+  mobile: window.matchMedia("(max-width: 480px)"),
+  tablet: window.matchMedia("(max-width: 768px)"),
+  desktop: window.matchMedia("(min-width: 769px)"),
+};
+
+// Function to handle UI changes based on screen size
+function handleScreenSizeChange() {
+  const container = document.querySelector(".container");
+  const leftSide = document.querySelector(".leftSide");
+  const rightSide = document.querySelector(".rightSide");
+  const chatContainer = document.getElementById("chatContainer");
+  const selectedGroupImage = document.getElementById("selectedGroupImage");
+
+  if (mediaQueries.mobile.matches) {
+    // Mobile UI modifications
+    leftSide.style.width = "100%";
+    rightSide.style.display = selectedGroupId ? "block" : "none";
+    selectedGroupImage.style.display = "block";
+
+    // Adjust chat container height for mobile
+    if (chatContainer) {
+      chatContainer.style.height = "calc(100vh - 120px)";
+    }
+  } else if (mediaQueries.tablet.matches) {
+    // Tablet UI modifications
+    leftSide.style.width = "40%";
+    rightSide.style.width = "60%";
+    rightSide.style.display = "block";
+    selectedGroupImage.style.display = "none";
+
+    if (chatContainer) {
+      chatContainer.style.height = "calc(100vh - 140px)";
+    }
+  } else {
+    // Desktop UI modifications
+    leftSide.style.width = "30%";
+    rightSide.style.width = "70%";
+    rightSide.style.display = "block";
+    selectedGroupImage.style.display = "none";
+
+    if (chatContainer) {
+      chatContainer.style.height = "calc(100vh - 160px)";
+    }
+  }
+}
+
+// Add event listeners for screen size changes
+mediaQueries.mobile.addListener(handleScreenSizeChange);
+mediaQueries.tablet.addListener(handleScreenSizeChange);
+mediaQueries.desktop.addListener(handleScreenSizeChange);
+
+// Initial call to set correct layout
+handleScreenSizeChange();
 
 async function fetchGroupsOneUser(userId) {
   const ref = collection(db, "groups");
@@ -203,6 +257,12 @@ async function openGroupHistory(groupId) {
   // Clear previous messages from the UI
   document.getElementById("chatContainer").innerHTML = "";
 
+  // Add this for mobile view handling
+  if (mediaQueries.mobile.matches) {
+    document.querySelector(".leftSide").style.display = "none";
+    document.querySelector(".rightSide").style.display = "block";
+  }
+
   // Remove previous message listener if exists
   if (currentMessageListener) {
     currentMessageListener();
@@ -232,6 +292,18 @@ async function openGroupHistory(groupId) {
     const chatContainer = document.getElementById("chatContainer");
     chatContainer.insertAdjacentHTML("beforeend", messageHTML);
     chatContainer.scrollTop = chatContainer.scrollHeight;
+  });
+}
+
+// Add back button functionality for mobile
+const backButton = document.getElementById("backToChatList");
+if (backButton) {
+  backButton.addEventListener("click", () => {
+    if (mediaQueries.mobile.matches) {
+      document.querySelector(".leftSide").style.display = "block";
+      document.querySelector(".rightSide").style.display = "none";
+      selectedGroupId = "";
+    }
   });
 }
 

@@ -59,3 +59,33 @@ body {
 .btn:hover {
   background: #3e5cf3;
 }
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 20px;
+  }
+
+  .main h1 {
+    margin-bottom: 15px;
+    font-size: 40px;
+  }
+  .main h2 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    padding: 15px;
+  }
+
+  .main h2 {
+    padding: 5px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
