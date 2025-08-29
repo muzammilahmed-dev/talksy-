@@ -118,6 +118,7 @@ body {
 }
 
 .model {
+  position: relative;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -168,7 +169,20 @@ body {
   pointer-events: auto;
   opacity: 1;
 }
+
+.iconClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: #686363;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
 .Group {
+  position: relative;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -178,6 +192,17 @@ body {
   text-align: center;
 }
 
+.groupIconClose {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: #686363;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
 .Group h1 {
   margin: 0;
 }
@@ -449,4 +474,90 @@ body {
   outline: none;
   border-radius: 30px;
   font-size: 1em;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 95%;
+    height: 95vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .container .leftSide {
+    flex: 40%;
+  }
+
+  .container .rightSide {
+    flex: 60%;
+  }
+
+  .model,
+  .Group {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .model_container input,
+  .model_Group input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    display: block;
+  }
+
+  .container .leftSide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #fff;
+  }
+
+  .container .rightSide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+  }
+
+  .container .rightSide.show {
+    display: block;
+  }
+
+  .nav-icons li,
+  .nav-icons button {
+    margin-left: 15px;
+    font-size: 1.2rem;
+  }
+
+  .message p {
+    max-width: 85%;
+  }
+
+  .chatbox_input input {
+    width: 80%;
+    margin: 0 10px;
+  }
+
+  .chatB0x {
+    height: calc(100% - 110px);
+  }
+
+  .header {
+    padding: 0 10px;
+  }
 }

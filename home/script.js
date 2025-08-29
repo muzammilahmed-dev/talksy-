@@ -85,7 +85,12 @@ fetchGroupsOneUser(userId);
 const openJoinGroup = document.getElementById("openJoinGroup");
 const modelJoinGroup = document.getElementById("modelJoinGroup");
 const joinGroupViaCode = document.getElementById("joinGroupViaCode");
+const joinGroupClose = document.getElementById("joinGroupClose");
 
+joinGroupClose.addEventListener("click", () => {
+  document.getElementById("joinGroupCode").value = "";
+  modelJoinGroup.classList.remove("show");
+});
 openJoinGroup.addEventListener("click", async () => {
   modelJoinGroup.classList.add("show");
 });
@@ -119,7 +124,12 @@ joinGroupViaCode.addEventListener("click", async () => {
 const open = document.getElementById("open");
 const modelCreateGroup = document.getElementById("modelCreateGroup");
 const close = document.getElementById("close");
+const createGroupClose = document.getElementById("createGroupClose");
 
+createGroupClose.addEventListener("click", () => {
+  document.getElementById("createGroup").value = "";
+  modelCreateGroup.classList.remove("show");
+});
 open.addEventListener("click", async () => {
   modelCreateGroup.classList.add("show");
 });

@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Talksy grouo chat</title>
     <link rel="stylesheet" href="home.css" />
   </head>
@@ -61,6 +64,11 @@
 
     <div class="model_container" id="modelCreateGroup">
       <div class="model">
+        <ion-icon
+          id="createGroupClose"
+          class="iconClose"
+          name="close-outline"
+        ></ion-icon>
         <h1>Create Group</h1>
         <p>Enter Your Group Name</p>
         <input
@@ -74,6 +82,11 @@
 
     <div class="model_Group" id="modelJoinGroup">
       <div class="Group">
+        <ion-icon
+          id="joinGroupClose"
+          class="groupIconClose"
+          name="close-outline"
+        ></ion-icon>
         <h1>Join Group</h1>
         <p>Enter Your Group Code</p>
         <input id="joinGroupCode" type="text" placeholder="Enter Group Code" />
